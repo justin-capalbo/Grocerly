@@ -1,0 +1,14 @@
+<div class="row">
+  <% if @list %>
+    <div class="col-md-4">
+      <%= render 'layouts/item_form' %>
+    </div>
+    <div class="col-md-8">
+      <%= render @list %>
+    </div>
+  <% else %>
+    <div class="col-md-12">
+      <h3>You don't have any active lists.  Why not <%= link_to 'make one', new_list_path %>?</h3> 
+    </div>
+  <% end %>
+</div>
