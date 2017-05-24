@@ -9,7 +9,13 @@
   </head>
 
   <body>
-    <%= image_tag 'http://www.donotenter.com/cool/ucgraphics/animated/uc_anim03.gif' %>
-    <!--%= yield %-->
+    <div class="container">
+      <%= render "shared/navigation" %>
+      <%= render 'layouts/alert' %>
+    </div>
+    <div class="container">
+      <%= yield %>
+      <%= debug(params) if Rails.env.development? %>
+    </div>
   </body>
 </html>
