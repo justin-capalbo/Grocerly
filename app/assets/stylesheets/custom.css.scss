@@ -1,9 +1,51 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
 /* Construction */
 
 img.construction{
-    display: block;
-    margin: 20px auto;
+  display: block;
+  margin: 20px auto;
+}
+
+/* Footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid black;
+
+  a {
+    color: #555;
+    &:hover {
+      color: #222;
+    }
+  }
+
+  small {
+    float: left;
+  }
+
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left; 
+      margin-left: 15px;
+    }
+  }
+}
+
+/* misc */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
 }
