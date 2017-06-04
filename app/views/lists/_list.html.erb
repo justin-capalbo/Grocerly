@@ -1,0 +1,10 @@
+<div class="list_view">
+  <h3 class="list-name"><%= list.name %></h3>
+  <h6 class="list-age">Created: <%= list.created_at %></h6>
+  <% if @list_items %>
+    <ul class="list-items">
+      <%= render @list_items %>
+    </ul>
+    <%= will_paginate @list_items %>
+  <% end %>
+</div>

@@ -1,0 +1,16 @@
+<% provide(:title, "My lists") %>
+<div class="row">
+  <h2>
+    My lists 
+  </h2>
+</div>
+<div class="row">
+  <div class="col-md-8">
+    <% if @lists.any? %>
+      <%= render @lists %>
+      <%= will_paginate @lists %>
+    <% else %>
+      <h3>You don't have any lists.  Why not <%= link_to 'make one', new_list_path %>?</h3> 
+    <% end %>
+  </div>
+</div>

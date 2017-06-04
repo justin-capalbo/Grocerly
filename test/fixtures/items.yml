@@ -1,0 +1,13 @@
+<% 30.times do |n| %>
+grocery_<%= n %>:
+  name: <%= Faker::Food.ingredient %>
+  notes: <%= Faker::Food.measurement %>
+  list: groceries
+<% end %>
+
+<% 20.times do |n| %>
+grocery_<%= n+30 %>:
+  name: <%= Faker::Food.spice %>
+  notes: <%= Faker::Food.measurement %>
+  list: groceries
+<% end %>

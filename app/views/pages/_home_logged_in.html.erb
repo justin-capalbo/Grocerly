@@ -1,5 +1,19 @@
-<div class="center jumbotron">
+<div class="row">
   <h2>
-    Welcome back, <%= current_user.username %>!  We kept everything how you left it.
+    Welcome back, <%= current_user.username %>!
   </h2>
+</div>
+<div class="row">
+  <% if @list %>
+    <div class="col-md-8">
+      <%= render 'layouts/item_form' %>
+    </div>
+    <div class="col-md-8">
+      <%= render @list %>
+    </div>
+  <% else %>
+    <div class="col-md-8">
+      <h3>You don't have any active lists.  Why not <%= link_to 'make one', new_list_path %>?</h3> 
+    </div>
+  <% end %>
 </div>
