@@ -2,10 +2,10 @@
   <%= form_for(@item) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
     <div class="field">
-      <%= f.text_area :name, placeholder: "New item" %>
+      <%= f.text_field :name, placeholder: "New item" %>
     </div>
     <div class="field">
-      <%= f.text_area :notes, placeholder: "Notes (optional)" %>
+      <%= f.text_field :notes, placeholder: "Notes (optional)" %>
     </div>
     <%= hidden_field_tag 'list_id', @list.id %>
     <%= f.submit "Add", class: "btn btn-primary" %>
