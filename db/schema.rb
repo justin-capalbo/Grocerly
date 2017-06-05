@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20170604015822) do
     t.integer "list_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["created_at", nil], name: "index_items_on_created_at_and_item_id"
+    t.index ["created_at", "id"], name: "index_items_on_created_at_and_id"
     t.index ["list_id"], name: "index_items_on_list_id"
   end
 
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20170604015822) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["created_at", nil], name: "index_lists_on_created_at_and_list_id"
+    t.index ["created_at", "id"], name: "index_lists_on_created_at_and_id"
     t.index ["user_id"], name: "index_lists_on_user_id"
   end
 
