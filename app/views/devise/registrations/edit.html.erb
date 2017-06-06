@@ -1,5 +1,5 @@
-<% provide(:title, 'My Account') %> 
-<h2>Account Details</h2>
+<% provide(:title, 'My account') %> 
+<h2>My Account</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :patch }) do |f| %>
   <%= devise_error_messages! %>
@@ -37,6 +37,6 @@
   </div>
 <% end %>
 
-<h3>Tired of organization?</h3>
+<h2>Tired of organization?</h2>
 
 <p><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %></p>
