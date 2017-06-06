@@ -25,7 +25,7 @@ class RegistrationsControllerTest < ActionDispatch::IntegrationTest
     get edit_user_registration_path
     assert flash.empty?
     assert_template 'devise/registrations/edit' 
-    assert_select "title", "My Account | #{@base_title}"
+    assert_select "title", "My account | #{@base_title}"
   end
 
   test "cancel registration should redirect to signup page if not logged in" do
