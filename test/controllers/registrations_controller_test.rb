@@ -5,7 +5,7 @@ class RegistrationsControllerTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:justin)
     @other_user = users(:barb)
-    @base_title = "Grocerly"
+    @base_title = "Grocerist"
   end
 
   test "should get new" do

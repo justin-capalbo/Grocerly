@@ -2,7 +2,7 @@ require 'test_helper'
 
 class SessionsControllerTest < ActionDispatch::IntegrationTest
   def setup
-    @base_title = "Grocerly"
+    @base_title = "Grocerist"
   end
 
   test "should get new" do

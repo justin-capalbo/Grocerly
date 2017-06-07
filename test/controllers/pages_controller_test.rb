@@ -2,7 +2,7 @@ require 'test_helper'
 
 class PagesControllerTest < ActionDispatch::IntegrationTest
   def setup
-    @base_title = "Grocerly"
+    @base_title = "Grocerist"
   end
 
   test "should get home" do
