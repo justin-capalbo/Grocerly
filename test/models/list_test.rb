@@ -2,8 +2,7 @@ require 'test_helper'
 
 class ListTest < ActiveSupport::TestCase
   def setup
-    @user = users(:justin)
-    @list = @user.lists.build(name: "Groceries")
+    @list = build(:list_with_items)
   end
 
   test "should be valid" do
@@ -27,10 +26,7 @@ class ListTest < ActiveSupport::TestCase
   
   test "associated items should be destroyed" do
     @list.save
-    3.times do
-      @list.items.create!(name: Faker::Food.ingredient)
-    end
-    assert_difference 'Item.count', -3 do
+    assert_difference 'Item.count', -1 * @list.items.count do
       @list.destroy
     end
   end

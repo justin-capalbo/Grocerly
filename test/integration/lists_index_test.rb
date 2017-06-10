@@ -3,8 +3,8 @@ require 'test_helper'
 class ListsIndexTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
   def setup
-    @user = users(:justin)
-    @newuser = users(:newuser)
+    @user = create(:user_with_no_items)
+    @newuser = create(:user)
   end
 
   test "index as regular user" do

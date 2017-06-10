@@ -3,8 +3,8 @@ require 'test_helper'
 class HomepageListFlowTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
   def setup
-    @user = users(:justin)
-    @barb = users(:barb)
+    @user = create(:user_with_items)
+    @barb = create(:user_with_no_items)
   end
   
   test "item creation" do
@@ -12,7 +12,7 @@ class HomepageListFlowTest < ActionDispatch::IntegrationTest
     get root_path
 
     # I can add an item to my own list
-    @list = lists(:groceries_barb)
+    @list = @barb.lists.first
     assert_difference 'Item.count', 1 do
       post items_path, params: { list_id: @list.id,
                                  item: { name: "New Item",
@@ -44,8 +44,8 @@ class HomepageListFlowTest < ActionDispatch::IntegrationTest
 
     # There should be a delete link for items, and
     # I can delete an item as the logged in user
-    @first_item = items(:grocery_1)
-    @second_item = items(:grocery_2)
+    @first_item = @user.active_list.items.first
+    @second_item = @user.active_list.items.second
     assert_select "a[href=?]", item_path(@first_item)
     assert_difference 'Item.count', -1 do
       delete item_path(@first_item)

@@ -18,7 +18,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 # Faker for creating funny names
 gem 'faker',                   '1.7.3'
-gem 'will_paginate',           '3.1.0'
+gem 'will_paginate',           '3.1.6'
 gem 'bootstrap-will_paginate', '0.0.10'
 gem 'bootstrap-sass',          '3.3.6'
 # Use Devise for authentication and authorization
@@ -41,6 +41,7 @@ gem 'jquery-rails', '4.1.1'
 group :test do
   gem 'minitest-reporters'
   gem 'rails-controller-testing'
+  gem 'factory_girl_rails'
 end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

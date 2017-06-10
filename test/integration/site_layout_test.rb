@@ -3,7 +3,7 @@ require 'test_helper'
 class SiteLayoutTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
   def setup
-    @new_user = users(:newuser)
+    @new_user = create(:user)
   end
 
   test "layout links" do
