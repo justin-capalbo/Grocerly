@@ -2,8 +2,7 @@ require 'test_helper'
 
 class ItemTest < ActiveSupport::TestCase
   def setup
-    @list = lists(:groceries)
-    @item = @list.items.build(name: Faker::Food.ingredient, notes: "notes")
+    @item = build(:item) 
   end
 
   test "should be valid" do

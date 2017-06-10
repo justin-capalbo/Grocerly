@@ -3,7 +3,7 @@ require 'test_helper'
 class ListsCreateTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
   def setup
-    @user = users(:justin)
+    @user = create(:user)
   end
 
   test "Invalid list information" do

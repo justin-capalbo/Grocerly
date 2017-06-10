@@ -2,8 +2,7 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   def setup
-    @user = User.new(username: "ExampleUser", email: "user@example.com",
-                     password: "foobar", password_confirmation: "foobar")  
+    @user = build(:user, username: "ValidUser")
   end
 
   test "should be valid" do
@@ -30,15 +29,16 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "associated lists should be destroyed" do
-    @user.save
-    @user.lists.create!(name: "Groceries")
-    assert_difference 'List.count', -1 do
-      @user.destroy
+    user = create(:user_with_no_items)
+    assert_difference 'List.count', -1 * user.lists.count do
+      user.destroy
     end
   end
 
   test "active list should be newest list chronologically" do
-    justin = users(:justin) 
-    assert_equal justin.active_list, justin.lists.order(created_at: :desc).first
+    @user.save
+    create(:list, user: @user, created_at: 5.days.ago)
+    create(:list, user: @user, created_at: 5.hours.ago)
+    assert_equal @user.active_list, @user.lists.order(created_at: :desc).first
   end
 end

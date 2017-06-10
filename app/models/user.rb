@@ -9,7 +9,7 @@ class User < ApplicationRecord
                        format: { without: /\s/ }
   
   has_many :lists, dependent: :destroy
- 
+
   # Returns the user's active list
   # The active list is the newest list chronologically which is
   # determined by the created_at (desc) index on List
