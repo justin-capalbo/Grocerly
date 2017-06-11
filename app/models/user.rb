@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, 
+  devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :username, presence: true, length: { maximum: 50 },
@@ -9,7 +9,7 @@ class User < ApplicationRecord
                        format: { without: /\s/ }
   
   has_many :lists, dependent: :destroy
-
+  
   # Returns the user's active list
   # The active list is the newest list chronologically which is
   # determined by the created_at (desc) index on List
