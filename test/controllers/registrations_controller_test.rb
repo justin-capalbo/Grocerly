@@ -34,7 +34,7 @@ class RegistrationsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to new_user_registration_path
   end
 
-  test "successful update" do
+  test "successful update plus confirmation" do
     sign_in @user
     get edit_user_registration_path
     assert_template 'devise/registrations/edit'
@@ -43,11 +43,19 @@ class RegistrationsControllerTest < ActionDispatch::IntegrationTest
     params = { user:  { username: new_username,
                         email: new_email,
                         current_password: 'password' } }
-
+    # I should be forced to confirm the update
     patch user_registration_path, params:  params
-    assert_equal new_username, @user.reload.username 
-    assert_equal new_email, @user.reload.email 
     assert_redirected_to root_url
+    assert_not flash.empty?
+    # Email isn't yet updated  
+    assert_equal new_username, @user.reload.username 
+    assert_not_equal new_email, @user.reload.email 
+    # Invalid confirmation token
+    get user_confirmation_path(confirmation_token: "invalid token")
+    assert_not_equal new_email, @user.reload.email 
+    # Valid confirmation token
+    get user_confirmation_path(confirmation_token: @user.confirmation_token)
+    assert_equal new_email, @user.reload.email
   end
 end
 

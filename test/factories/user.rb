@@ -1,8 +1,9 @@
 FactoryGirl.define do
   factory :user do
-    username { Faker::Internet.user_name }
-    email { Faker::Internet.safe_email(username) }
-    password "password"
+    username     { Faker::Internet.user_name }
+    email        { Faker::Internet.safe_email(username) }
+    password     "password"
+    confirmed_at Time.now
 
     # Generic single list, multiple generic items
     factory :user_with_items do
@@ -17,5 +18,11 @@ FactoryGirl.define do
         create(:list, user: user)
       end
     end
+  end
+  
+  factory :unconfirmed_user do
+    username     { Faker::Internet.user_name }
+    email        { Faker::Internet.safe_email(username) }
+    password     "password"
   end
 end

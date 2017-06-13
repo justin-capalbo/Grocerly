@@ -1,6 +1,7 @@
 <% provide(:title, 'Forgot password') %> 
 <h2>Forgot your password?</h2>
 
+<p>It happens.  Enter the email associated with your account and link will be sent to help you get a new password.</p>
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
 
@@ -10,7 +11,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+    <%= f.submit "Send my reset instructions", class: "btn btn-primary" %>
   </div>
 <% end %>
 
