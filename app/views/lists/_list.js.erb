@@ -1,0 +1,10 @@
+$(function() {
+  $('.btn-delete-mode').click(function() {
+    $('.btn-delete').toggle();
+    var normalMode = $('.btn-delete').is(":visible");
+    if (normalMode)
+      $(this).html("Done deleting");
+    else
+      $(this).html("Delete items");
+  });
+});

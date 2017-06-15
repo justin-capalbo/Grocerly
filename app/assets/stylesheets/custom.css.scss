@@ -5,6 +5,18 @@
   -webkit-box-sizing: border-box;
   box-sizing:         border-box;
 }
+
+$border-color-btn:#099;
+
+/* Debugging */
+* {
+  border: 1px dashed blue;
+} 
+
+div {
+  border: 1px dashed red;
+} 
+
 /* Construction */
 
 img.construction{
@@ -50,6 +62,15 @@ footer {
   @include box_sizing;
 }
 
+/* Button style */
+
+.btn {
+
+  &:hover{
+    box-shadow: 0 0 0 1pt $border-color-btn; 
+  }
+}
+
 /* Items */
 
 li.list-item {
@@ -61,4 +82,15 @@ li.list-item {
   span.item-name {
     font-size: 1.5em;
   }
+}
+
+.btn-delete {
+  display: none; 
+  img {
+  }
+}
+
+.btn-delete-mode {
+  margin-top: -4px;
+  margin-bottom: 4px;
 }

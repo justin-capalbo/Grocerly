@@ -3,6 +3,6 @@
   <% unless item.notes.empty? %>
   <span class="item-notes item-info"><%= item.notes %></span>
   <% end %>
-  | <%= link_to image_tag("trash.png", size: 16), item, method: :delete,
-    data: { confirm: "Are you sure?" } %>
+  <%= link_to image_tag("trash.png", size: 16), item, class: 'btn-delete', method: :delete,
+      data: { confirm: "Are you sure?" } %>
 </li>
