@@ -1,7 +1,8 @@
 User.create!(username: "test.account",
              email:    "example@test.com",
              password:              "foobar",
-             password_confirmation: "foobar")
+             password_confirmation: "foobar",
+             confirmed_at: DateTime.now)
 
 # Lists and items for users
 users = User.all

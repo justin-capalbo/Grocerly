@@ -5,8 +5,12 @@ class ItemsController < ApplicationController
   
   def destroy
     @item.destroy
-    flash[:success] = "#{@item.name} deleted from #{@item.list.name}"
-    redirect_back(fallback_location: root_url) 
+    # flash[:success] = "#{@item.name} deleted from #{@item.list.name}"
+    respond_to do |format|
+      format.html { redirect_to root_url }
+      format.json { head :no_content }
+      format.js   { render :layout => false }
+    end
   end
 
   def create

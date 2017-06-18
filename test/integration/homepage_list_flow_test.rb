@@ -50,7 +50,6 @@ class HomepageListFlowTest < ActionDispatch::IntegrationTest
     assert_difference 'Item.count', -1 do
       delete item_path(@first_item)
     end
-    assert_not flash.empty?
 
     # Can't delete another user's item
     sign_in @barb 

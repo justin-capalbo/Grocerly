@@ -2,9 +2,23 @@
   <h3 class="list-name"><%= list.name %></h3>
   <h6 class="list-age">Created: <%= list.created_at %></h6>
   <% if @list_items %>
+    <div class="btn btn-danger btn-sm btn-delete-mode">Delete items</div>
     <ul class="list-items">
       <%= render @list_items %>
     </ul>
     <%= will_paginate @list_items %>
   <% end %>
 </div>
+
+<script>
+$(function() {
+  $('.btn-delete-mode').click(function() {
+    $('.btn-delete').toggle();
+    var normalMode = $('.btn-delete').is(":visible");
+    if (normalMode)
+      $(this).html("Done deleting");
+    else
+      $(this).html("Delete items");
+  });
+});
+</script> 
