@@ -1,3 +1,4 @@
 $('.btn-delete').bind('ajax:success', function() {  
-  $(this).closest('.list-item').fadeOut();
+  $(this).closest('.list-item').fadeOut('slow');
+  $('#flash-messages').html("<%= j render(:partial => 'layouts/alert') %>");
 });  
