@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   
   def destroy
     @item.destroy
-    # flash[:success] = "#{@item.name} deleted from #{@item.list.name}"
+    flash[:success] = "#{@item.name} deleted from #{@item.list.name}"
     respond_to do |format|
       format.html { redirect_to root_url }
       format.json { head :no_content }
